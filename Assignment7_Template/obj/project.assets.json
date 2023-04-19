@@ -8,21 +8,33 @@
           "FSharp.Core": "4.3.4"
         },
         "compile": {
-          "lib/netstandard2.0/FParsec.dll": {},
-          "lib/netstandard2.0/FParsecCS.dll": {}
+          "lib/netstandard2.0/FParsec.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/netstandard2.0/FParsecCS.dll": {
+            "related": ".pdb;.xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.0/FParsec.dll": {},
-          "lib/netstandard2.0/FParsecCS.dll": {}
+          "lib/netstandard2.0/FParsec.dll": {
+            "related": ".pdb;.xml"
+          },
+          "lib/netstandard2.0/FParsecCS.dll": {
+            "related": ".pdb;.xml"
+          }
         }
       },
-      "FSharp.Core/6.0.1": {
+      "FSharp.Core/7.0.200": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.1/FSharp.Core.dll": {}
+          "lib/netstandard2.1/FSharp.Core.dll": {
+            "related": ".xml"
+          }
         },
         "runtime": {
-          "lib/netstandard2.1/FSharp.Core.dll": {}
+          "lib/netstandard2.1/FSharp.Core.dll": {
+            "related": ".xml"
+          }
         },
         "resource": {
           "lib/netstandard2.1/cs/FSharp.Core.resources.dll": {
@@ -64,13 +76,6 @@
           "lib/netstandard2.1/zh-Hant/FSharp.Core.resources.dll": {
             "locale": "zh-Hant"
           }
-        },
-        "contentFiles": {
-          "contentFiles/any/any/_._": {
-            "buildAction": "None",
-            "codeLanguage": "any",
-            "copyToOutput": false
-          }
         }
       }
     }
@@ -99,17 +104,15 @@
         "lib/netstandard2.0/FParsecCS.xml"
       ]
     },
-    "FSharp.Core/6.0.1": {
-      "sha512": "VrFAiW8dEEekk+0aqlbvMNZzDvYXmgWZwAt68AUBqaWK8RnoEVUNglj66bZzhs4/U63q0EfXlhcEKnH1sTYLjw==",
+    "FSharp.Core/7.0.200": {
+      "sha512": "NmgUnpNH6Zu9B0SPIhojyo38gnPdkdYFYQfbd6zosEH32kbGY/g/Klk7PfOWe1NAe/O1YOMmK9KhwQ2OWsWEbg==",
       "type": "package",
-      "path": "fsharp.core/6.0.1",
+      "path": "fsharp.core/7.0.200",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "contentFiles/any/netstandard2.0/FSharp.Core.xml",
-        "contentFiles/any/netstandard2.1/FSharp.Core.xml",
-        "fsharp.core.6.0.1.nupkg.sha512",
+        "fsharp.core.7.0.200.nupkg.sha512",
         "fsharp.core.nuspec",
         "lib/netstandard2.0/FSharp.Core.dll",
         "lib/netstandard2.0/FSharp.Core.xml",
@@ -147,30 +150,30 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "FParsec >= 1.1.1",
-      "FSharp.Core >= 6.0.1"
+      "FSharp.Core >= 7.0.200"
     ]
   },
   "packageFolders": {
-    "/Users/jebe/.nuget/packages/": {}
+    "C:\\Users\\mikke\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/jebe/OneDrive - ITU/teaching/courses/FP2022/Assignment 7/Assignment7_Template/Assignment7_Template/Assignment7_Template.fsproj",
+      "projectUniqueName": "c:\\Users\\mikke\\iCloudDrive\\ITU\\Functional programming\\FP-Assignment7\\Assignment7_Template\\Assignment7_Template.fsproj",
       "projectName": "Assignment7_Template",
-      "projectPath": "/Users/jebe/OneDrive - ITU/teaching/courses/FP2022/Assignment 7/Assignment7_Template/Assignment7_Template/Assignment7_Template.fsproj",
-      "packagesPath": "/Users/jebe/.nuget/packages/",
-      "outputPath": "/Users/jebe/OneDrive - ITU/teaching/courses/FP2022/Assignment 7/Assignment7_Template/Assignment7_Template/obj/",
+      "projectPath": "c:\\Users\\mikke\\iCloudDrive\\ITU\\Functional programming\\FP-Assignment7\\Assignment7_Template\\Assignment7_Template.fsproj",
+      "packagesPath": "C:\\Users\\mikke\\.nuget\\packages\\",
+      "outputPath": "c:\\Users\\mikke\\iCloudDrive\\ITU\\Functional programming\\FP-Assignment7\\Assignment7_Template\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/jebe/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\mikke\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp3.1"
       ],
       "sources": {
-        "https://api.nuget.org/v3/index.json": {},
-        "https://nuget.pkg.github.com/jesper-bengtson/index.json": {}
+        "C:\\Program Files\\dotnet\\sdk\\7.0.203\\FSharp\\library-packs": {},
+        "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
@@ -191,7 +194,7 @@
           "FSharp.Core": {
             "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
             "target": "Package",
-            "version": "[6.0.1, )",
+            "version": "[7.0.200, )",
             "generatePathProperty": true
           }
         },
@@ -201,14 +204,27 @@
           "net47",
           "net471",
           "net472",
-          "net48"
+          "net48",
+          "net481"
         ],
         "assetTargetFallback": true,
         "warn": true,
         "downloadDependencies": [
           {
-            "name": "Microsoft.NETCore.App.Host.osx-x64",
-            "version": "[3.1.22, 3.1.22]"
+            "name": "Microsoft.AspNetCore.App.Ref",
+            "version": "[3.1.10, 3.1.10]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Host.win-x64",
+            "version": "[3.1.32, 3.1.32]"
+          },
+          {
+            "name": "Microsoft.NETCore.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
+          },
+          {
+            "name": "Microsoft.WindowsDesktop.App.Ref",
+            "version": "[3.1.0, 3.1.0]"
           }
         ],
         "frameworkReferences": {
@@ -216,7 +232,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
       }
     }
   }

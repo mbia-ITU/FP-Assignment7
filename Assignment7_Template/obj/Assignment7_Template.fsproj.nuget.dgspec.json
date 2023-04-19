@@ -1,27 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/jebe/OneDrive - ITU/teaching/courses/FP2022/Assignment 7/Assignment7_Template/Assignment7_Template/Assignment7_Template.fsproj": {}
+    "c:\\Users\\mikke\\iCloudDrive\\ITU\\Functional programming\\FP-Assignment7\\Assignment7_Template\\Assignment7_Template.fsproj": {}
   },
   "projects": {
-    "/Users/jebe/OneDrive - ITU/teaching/courses/FP2022/Assignment 7/Assignment7_Template/Assignment7_Template/Assignment7_Template.fsproj": {
+    "c:\\Users\\mikke\\iCloudDrive\\ITU\\Functional programming\\FP-Assignment7\\Assignment7_Template\\Assignment7_Template.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/jebe/OneDrive - ITU/teaching/courses/FP2022/Assignment 7/Assignment7_Template/Assignment7_Template/Assignment7_Template.fsproj",
+        "projectUniqueName": "c:\\Users\\mikke\\iCloudDrive\\ITU\\Functional programming\\FP-Assignment7\\Assignment7_Template\\Assignment7_Template.fsproj",
         "projectName": "Assignment7_Template",
-        "projectPath": "/Users/jebe/OneDrive - ITU/teaching/courses/FP2022/Assignment 7/Assignment7_Template/Assignment7_Template/Assignment7_Template.fsproj",
-        "packagesPath": "/Users/jebe/.nuget/packages/",
-        "outputPath": "/Users/jebe/OneDrive - ITU/teaching/courses/FP2022/Assignment 7/Assignment7_Template/Assignment7_Template/obj/",
+        "projectPath": "c:\\Users\\mikke\\iCloudDrive\\ITU\\Functional programming\\FP-Assignment7\\Assignment7_Template\\Assignment7_Template.fsproj",
+        "packagesPath": "C:\\Users\\mikke\\.nuget\\packages\\",
+        "outputPath": "c:\\Users\\mikke\\iCloudDrive\\ITU\\Functional programming\\FP-Assignment7\\Assignment7_Template\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/jebe/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\mikke\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
         ],
         "sources": {
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/jesper-bengtson/index.json": {}
+          "C:\\Program Files\\dotnet\\sdk\\7.0.203\\FSharp\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
@@ -42,7 +42,7 @@
             "FSharp.Core": {
               "include": "Runtime, Compile, Build, Native, Analyzers, BuildTransitive",
               "target": "Package",
-              "version": "[6.0.1, )",
+              "version": "[7.0.200, )",
               "generatePathProperty": true
             }
           },
@@ -52,14 +52,27 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
           "downloadDependencies": [
             {
-              "name": "Microsoft.NETCore.App.Host.osx-x64",
-              "version": "[3.1.22, 3.1.22]"
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[3.1.10, 3.1.10]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x64",
+              "version": "[3.1.32, 3.1.32]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[3.1.0, 3.1.0]"
             }
           ],
           "frameworkReferences": {
@@ -67,7 +80,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.101/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,12 +1,15 @@
 {
   "version": 2,
-  "dgSpecHash": "2oyPw4ywkeRc93mdJwr443dTcfGLx4yzh7BysN1ZW7Oxz74uatwTyRUUr+HHa30JETxmmxjAyDW2D1DZ5WSdCw==",
+  "dgSpecHash": "NGo+GIe0qwvRT6IsKPI7RrJbwE4uCQRstDxYRL8lHNjLHk8zRdV6itT3nlkK25cweQHvVgtAM/mAkwD4z97tlQ==",
   "success": true,
-  "projectFilePath": "/Users/jebe/OneDrive - ITU/teaching/courses/FP2022/Assignment 7/Assignment7_Template/Assignment7_Template/Assignment7_Template.fsproj",
+  "projectFilePath": "c:\\Users\\mikke\\iCloudDrive\\ITU\\Functional programming\\FP-Assignment7\\Assignment7_Template\\Assignment7_Template.fsproj",
   "expectedPackageFiles": [
-    "/Users/jebe/.nuget/packages/fparsec/1.1.1/fparsec.1.1.1.nupkg.sha512",
-    "/Users/jebe/.nuget/packages/fsharp.core/6.0.1/fsharp.core.6.0.1.nupkg.sha512",
-    "/Users/jebe/.nuget/packages/microsoft.netcore.app.host.osx-x64/3.1.22/microsoft.netcore.app.host.osx-x64.3.1.22.nupkg.sha512"
+    "C:\\Users\\mikke\\.nuget\\packages\\fparsec\\1.1.1\\fparsec.1.1.1.nupkg.sha512",
+    "C:\\Users\\mikke\\.nuget\\packages\\fsharp.core\\7.0.200\\fsharp.core.7.0.200.nupkg.sha512",
+    "C:\\Users\\mikke\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\mikke\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\mikke\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\mikke\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\3.1.32\\microsoft.netcore.app.host.win-x64.3.1.32.nupkg.sha512"
   ],
   "logs": []
 }
