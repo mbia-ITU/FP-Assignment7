@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "2oyPw4ywkeRc93mdJwr443dTcfGLx4yzh7BysN1ZW7Oxz74uatwTyRUUr+HHa30JETxmmxjAyDW2D1DZ5WSdCw==",
+  "success": true,
+  "projectFilePath": "/Users/jebe/OneDrive - ITU/teaching/courses/FP2022/Assignment 7/Assignment7_Template/Assignment7_Template/Assignment7_Template.fsproj",
+  "expectedPackageFiles": [
+    "/Users/jebe/.nuget/packages/fparsec/1.1.1/fparsec.1.1.1.nupkg.sha512",
+    "/Users/jebe/.nuget/packages/fsharp.core/6.0.1/fsharp.core.6.0.1.nupkg.sha512",
+    "/Users/jebe/.nuget/packages/microsoft.netcore.app.host.osx-x64/3.1.22/microsoft.netcore.app.host.osx-x64.3.1.22.nupkg.sha512"
+  ],
+  "logs": []
+}
