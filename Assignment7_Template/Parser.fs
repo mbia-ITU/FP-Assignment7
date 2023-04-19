@@ -61,14 +61,21 @@
     let BoolParseTop, breft = createParserForwardedToRef<bExp>()
 
     let AddParse = binop (pchar '+') ProdParse TermParse |>> Add <?> "Add"
-    do tref := choice [AddParse; ProdParse]
+    let SubParse = binop (pchar '-') ProdParse TermParse |>> Sub <?> "Sub"
+    do tref := choice [AddParse; SubParse; ProdParse;]
 
     let MulParse = binop (pchar '*') AtomParse ProdParse |>> Mul <?> "Mul"
-    do pref := choice [MulParse; AtomParse]
+    let DivParse = binop (pchar '/') AtomParse ProdParse |>> Div <?> "Div"
+    let ModParse = binop (pstring "%") AtomParse ProdParse |>> Mod <?> "Mod"
+    do pref := choice [MulParse; DivParse; ModParse; AtomParse]
 
     let NParse   = pint32 |>> N <?> "Int"
     let ParParse = parenthesise TermParse
-    do aref := choice [NParse; ParParse]
+    let NegParse = unop (pchar '-') AtomParse |>> (fun x -> Mul (N -1, x)) <?> "Neg"
+    let pointValueParse = unop pPointValue AtomParse |>> PV <?> "PointValue"
+    let variableParse = pid |>> V <?> "Variable"
+    let CharToInt = unop pCharToInt (parenthesise CharParse) |>> CharToInt <?> "CharToInt"
+    do aref := choice [NegParse; NParse; pointValueParse; CharToInt; ParParse; variableParse]
 
     let AexpParse = TermParse 
 
