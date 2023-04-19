@@ -45,13 +45,23 @@
     let push : SM<unit> = 
         S (fun s -> Success ((), {s with vars = Map.empty :: s.vars}))
 
-    let pop : SM<unit> = failwith "Not implemented"      
+    let pop : SM<unit> =  
+         S (fun s -> Success ((), {s with vars = List.tail s.vars}))   
 
-    let wordLength : SM<int> = failwith "Not implemented"      
+    let wordLength : SM<int> = 
+        S (fun s -> Success (List.length s.word, s))      
 
-    let characterValue (pos : int) : SM<char> = failwith "Not implemented"      
+    let characterValue (pos : int) : SM<char> =
+        S (fun s -> 
+            match pos with
+            | pos when pos > -1 && pos < List.length s.word -> Success (fst s.word.[pos], s)
+            | _ -> Failure (IndexOutOfBounds pos))
 
-    let pointValue (pos : int) : SM<int> = failwith "Not implemented"      
+    let pointValue (pos : int) : SM<int> = 
+        S (fun s -> 
+            match pos with
+            | pos when pos > -1 && pos < List.length s.word -> Success (snd s.word.[pos], s)
+            | _ -> Failure (IndexOutOfBounds pos))      
 
     let lookup (x : string) : SM<int> = 
         let rec aux =
@@ -67,8 +77,28 @@
               | Some v -> Success (v, s)
               | None   -> Failure (VarNotFound x))
 
-    let declare (var : string) : SM<unit> = failwith "Not implemented"   
-    let update (var : string) (value : int) : SM<unit> = failwith "Not implemented"      
+    let update (var : string) (value : int) : SM<unit> =
+        let rec aux lstBefore =
+            function
+            | []      -> None
+            | m :: ms -> 
+                match Map.tryFind var m with
+                | Some v -> Some (lstBefore@(Map.add var value m) :: ms)
+                | None   -> aux (lstBefore@[m]) ms
+
+        S (fun s -> 
+              match aux [] (s.vars) with
+              | Some v -> Success ((), {s with vars = v})
+              | None   -> Failure (VarNotFound var))
+
+    let declare (var : string) : SM<unit> =
+        S (fun s -> 
+              match var with
+              | _ when s.vars.IsEmpty -> Failure (VarNotFound "Stack is empty")
+              | _ when s.reserved.Contains var -> Failure (ReservedName var)
+              | _ when s.vars.[0].ContainsKey var -> Failure (VarExists var)
+              | _ -> Success ((), {s with vars = (Map.add var 0 (List.head s.vars)) :: List.tail s.vars})
+              )   
               
 
     
