@@ -57,6 +57,8 @@
     let TermParse, tref = createParserForwardedToRef<aExp>()
     let ProdParse, pref = createParserForwardedToRef<aExp>()
     let AtomParse, aref = createParserForwardedToRef<aExp>()
+    let CharParse, cref = createParserForwardedToRef<cExp>()
+    let BoolParseTop, breft = createParserForwardedToRef<bExp>()
 
     let AddParse = binop (pchar '+') ProdParse TermParse |>> Add <?> "Add"
     do tref := choice [AddParse; ProdParse]
@@ -67,10 +69,6 @@
     let NParse   = pint32 |>> N <?> "Int"
     let ParParse = parenthesise TermParse
     do aref := choice [NParse; ParParse]
-
-    let CharParse, cref = createParserForwardedToRef<cExp>()
-
-    let BoolParseTop, breft = createParserForwardedToRef<bExp>()
 
     let AexpParse = TermParse 
 
