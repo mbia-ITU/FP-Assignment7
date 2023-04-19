@@ -12,45 +12,47 @@
     open JParsec.TextParser             // Example parser combinator library. Use for CodeJudge.
     // open FParsecLight.TextParser     // Industrial parser-combinator library. Use for Scrabble Project.
     
-    let pIntToChar  = pstring "not implemented"
-    let pPointValue = pstring "not implemented"
+    let pIntToChar  = pstring "intToChar" <?> "intToChar"
+    let pPointValue = pstring "pointValue" <?> "pointValue"
 
-    let pCharToInt  = pstring "not implemented"
-    let pToUpper    = pstring "not implemented"
-    let pToLower    = pstring "not implemented"
-    let pCharValue  = pstring "not implemented"
+    let pCharToInt  = pstring "charToInt" <?> "charToInt"
+    let pToUpper    = pstring "toUpper" <?> "toUpper"
+    let pToLower    = pstring "toLower" <?> "toLower"
+    let pCharValue  = pstring "charValue" <?> "charValue"
 
-    let pTrue       = pstring "not implemented"
-    let pFalse      = pstring "not implemented"
-    let pIsDigit    = pstring "not implemented"
-    let pIsLetter   = pstring "not implemented"
-    let pIsVowel   = pstring "not implemented"
+    let pTrue       = pstring "true" <?> "true"
+    let pFalse      = pstring "false" <?> "false"
+    let pIsDigit    = pstring "isDigit" <?> "isDigit"
+    let pIsLetter   = pstring "isLetter" <?> "isLetter"
+    let pIsVowel   = pstring "isVowel" <?> "isVowel"
 
-    let pif       = pstring "not implemented"
-    let pthen     = pstring "not implemented"
-    let pelse     = pstring "not implemented"
-    let pwhile    = pstring "not implemented"
-    let pdo       = pstring "not implemented"
-    let pdeclare  = pstring "not implemented"
+    let pif       = pstring "if" <?> "if"
+    let pthen     = pstring "then" <?> "then"
+    let pelse     = pstring "else" <?> "else"
+    let pwhile    = pstring "while" <?> "while"
+    let pdo       = pstring "do" <?> "do"
+    let pdeclare  = pstring "declare" <?> "declare"
 
-    let whitespaceChar = pstring "not implemented"
-    let pletter        = pstring "not implemented"
-    let palphanumeric  = pstring "not implemented"
+    let whitespaceChar = satisfy System.Char.IsWhiteSpace <?> "whitespace"
+    let pletter        = satisfy System.Char.IsLetter <?> "letter"
+    let palphanumeric  = satisfy System.Char.IsLetterOrDigit <?> "alphanumeric"
 
-    let spaces         = pstring "not implemented"
-    let spaces1        = pstring "not implemented"
+    let spaces         = many whitespaceChar <?> "space"
+    let spaces1        = many1 whitespaceChar <?> "space1"
 
-    let (.>*>.) _ _ = failwith "not implemented"
-    let (.>*>) _ _  = failwith "not implemented"
-    let (>*>.) _ _  = failwith "not implemented"
+    let (.>*>.) a b = (a .>> spaces) .>>. b
+    let (.>*>) a b   = (a .>> spaces) .>> b
+    let (>*>.) a b   = (a .>> spaces) >>. b
 
-    let parenthesise p = p // incorrect (not implemented)
+    let surroundedBy p s e = pchar s >*>. p .>*> pchar e
+    let parenthesise p = surroundedBy p '(' ')' <?> "parenthesise"
 
-    let pid = pstring "not implemented"
-
+    let innerCombine (a: Parser<char * list<char>>)  =  a |>> (fun (x, xs) -> x :: xs)
+    let stringconverter (lst: list<char>) = System.String.Concat(Array.ofList(lst))
+    let pid = (pletter <|> pchar '_') .>>. (many (palphanumeric <|> pchar '_')) |> innerCombine |>> stringconverter <?> "Identifier"
     
-    let unop _ = failwith "not implemented"
-    let binop _ p1 p2 = p1 .>>. p2 // incorrect (not implemented)
+    let unop op a= op >*>. a
+    let binop op p1 p2 = (p1 .>*> op) .>*>. p2
 
     let TermParse, tref = createParserForwardedToRef<aExp>()
     let ProdParse, pref = createParserForwardedToRef<aExp>()
@@ -66,11 +68,15 @@
     let ParParse = parenthesise TermParse
     do aref := choice [NParse; ParParse]
 
+    let CharParse, cref = createParserForwardedToRef<cExp>()
+
+    let BoolParseTop, breft = createParserForwardedToRef<bExp>()
+
     let AexpParse = TermParse 
 
-    let CexpParse = pstring "not implemented"
+    let CexpParse = CharParse
 
-    let BexpParse = pstring "not implemented"
+    let BexpParse = BoolParseTop
 
     let stmntParse = pstring "not implemented"
 
